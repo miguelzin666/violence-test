@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIOLÊNCIA GRATUITA</title>
+</head>
+<body>
+<div class="container-mobile" id="container-mobile">
+
+<div id="radio">
+    <img src="radin.png">
+</div>
+<audio id="som" src="radio.mp3"></audio>
+
+<button class="on-off" id="on-off" onclick="onOff()"></button>
+
+<div class="voltar">
+    <a href="leftway1.html">
+        <button>▼▼▼</button>
+    </a>
+</div>
+
+</div>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #0b0b0b;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+.container-mobile {
+    width: 100%;
+    max-width: 450px;
+    margin: 0;
+    min-height: 100vh;
+    background: black;
+    background-image: url(off-leftway-room.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    overflow-x: hidden;
+    position: relative;
+}
+.container-mobile.on{
+    background-image: url(leftway-room.png);
+}
+
+.on-off{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 70px;
+    height: 130px;
+    margin: 20px 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+#radio{
+    width: 100%;
+    margin-top: 88%;
+    height: 50px;
+    position: absolute;
+    align-items: center;
+    display: none;
+    justify-content: center;
+}
+#radio.on{
+    display: flex;
+}
+#radio img{
+    position: absolute;
+    width: 70px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.voltar{
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    button{
+        color: white;
+        background: rgba(0, 0, 0, 0.408);
+        padding: 10px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}
+</style>
+<script>
+
+    const objeto = document.getElementById("radio");
+    const som = document.getElementById("som");
+
+    objeto.addEventListener("click", function(){
+        som.currentTime = 0;
+        som.play();
+    });
+
+    const onOffBtn = document.getElementById("on-off");
+    let container = document.getElementById("container-mobile");
+
+    function onOff(){
+        container.classList.toggle("on");
+        objeto.classList.toggle("on");
+    }
+
+</script>
+</html>
